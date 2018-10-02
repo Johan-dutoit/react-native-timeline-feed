@@ -1,0 +1,9 @@
+{
+  "plugins": [
+    "transform-class-properties"
+  ],
+  "presets": [
+    "flow",
+    "react-native"
+  ]
+}

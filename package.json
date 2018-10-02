@@ -1,0 +1,54 @@
+{
+  "name": "react-native-timeline-feed",
+  "version": "0.0.1",
+  "description": "Timeline component for React Native",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src/ -d lib/ --copy-files",
+    "prepublish": "npm run build",
+    "flow": "flow"
+  },
+  "files": [
+    "lib/**"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Johan-dutoit/react-native-timeline-feed.git"
+  },
+  "keywords": [
+    "react-native",
+    "timeline",
+    "listview",
+    "schedule",
+    "react native component",
+    "ios",
+    "android",
+    "component",
+    "flatlist",
+    "flat list"
+  ],
+  "author": "Johan du Toit (https://github.com/Johan-dutoit)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Johan-dutoit/react-native-timeline-feed/issues"
+  },
+  "homepage": "https://github.com/Johan-dutoit/react-native-timeline-feed",
+  "peerDependencies": {
+    "react-native": ">= 0.44"
+  },
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-preset-flow": "6.23.0",
+    "babel-preset-react-native": "^4.0.1",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "flow-bin": "0.81.0",
+    "metro-react-native-babel-preset": "0.46.0",
+    "prettier": "1.14.3",
+    "react": "16.5.0",
+    "react-native": "0.57.1"
+  }
+}
