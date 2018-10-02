@@ -2,6 +2,9 @@
 
 Timeline component for React Native App work for Android and iOS
 
+[![NPM Version](https://img.shields.io/npm/v/react-native-timeline-feed.svg?style=flat)](https://www.npmjs.com/package/react-native-timeline-feed)
+[![NPM Downloads](https://img.shields.io/npm/dm/react-native-timeline-feed.svg?style=flat)](https://www.npmjs.com/package/react-native-timeline-feed)
+
 Thanks to the contributors of [react-native-timeline-listview](https://github.com/thegamenicorus/react-native-timeline-listview), as this is heavily based off that and amended with the newer React Native features (incl. flatlist).
 
 ![untitled-1](https://cloud.githubusercontent.com/assets/21040043/24750025/8c8d044e-1aef-11e7-8fd7-7d64431af7e4.png)
