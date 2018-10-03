@@ -341,7 +341,8 @@ render(){
 | renderDetail         | function({ item, index }) | null          | custom render event title and event description                  |
 | renderCircle         | function({ item, index }) | null          | custom render circle                                             |
 | renderFullLine       | bool                      | false         | render event border on last timeline item                        |
-| flatListProps        | object                    | null          | FlatList properties                                              |
+| flatListProps        | object                    | null          | FlatList properties (excling keyExtractor, see next)             |
+| keyExtractor         | function(item)            | null          | FlatList keyExtractor                                            |
 | showTime             | boolean                   | true          | Time container options                                           |
 
 ## Shift problem
