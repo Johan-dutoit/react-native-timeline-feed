@@ -314,36 +314,37 @@ render(){
 
 #### Timeline:
 
-| Property             | Type                      | Default       | Description                                                      |
-| -------------------- | ------------------------- | ------------- | ---------------------------------------------------------------- |
-| data                 | data object               | null          | timeline data                                                    |
-| innerCircleType      | string                    | null          | timeline mode : 'none', 'dot', 'icon'                            |
-| separator            | bool                      | true          | render separator line of events                                  |
-| columnFormat         | string                    | 'single-left' | can be 'single-column-left', 'single-column-right', 'two-column' |
-| lineWidth            | int                       | 2             | timeline line width                                              |
-| lineColor            | string                    | '#007AFF'     | timeline line color                                              |
-| circleSize           | int                       | 16            | timeline circle size                                             |
-| circleColor          | string                    | '#007AFF'     | timeline circle color                                            |
-| dotColor             | string                    | 'white'       | timeline dot color (innerCircleType = 'dot')                     |
-| icon                 | obj(image source)         | null          | timeline icon (innerCircleType = 'color')                        |
-| style                | object                    | null          | custom styles of Timeline container                              |
-| flatlistStyle        | object                    | null          | custom styles of inner FlatList                                  |
-| timeStyle            | object                    | null          | custom styles of event time                                      |
-| titleStyle           | object                    | null          | custom styles of event title                                     |
-| descriptionStyle     | object                    | null          | custom styles of event description                               |
-| iconStyle            | object                    | null          | custom styles of event icon                                      |
-| separatorStyle       | object                    | null          | custom styles of separator                                       |
-| rowContainerStyle    | object                    | null          | custom styles of event container                                 |
-| timeContainerStyle   | object                    | null          | custom styles of container of event time                         |
-| detailContainerStyle | object                    | null          | custom styles of container of event title and event description  |
-| onEventPress         | function(event)           | null          | function to be invoked when event was pressed                    |
-| renderTime           | function({ item, index }) | null          | custom render event time                                         |
-| renderDetail         | function({ item, index }) | null          | custom render event title and event description                  |
-| renderCircle         | function({ item, index }) | null          | custom render circle                                             |
-| renderFullLine       | bool                      | false         | render event border on last timeline item                        |
-| flatListProps        | object                    | null          | FlatList properties (excling keyExtractor, see next)             |
-| keyExtractor         | function(item)            | null          | FlatList keyExtractor                                            |
-| showTime             | boolean                   | true          | Time container options                                           |
+| Property             | Type                              | Default       | Description                                                                                                              |
+| -------------------- | --------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| data                 | data object                       | null          | timeline data                                                                                                            |
+| innerCircleType      | string                            | null          | timeline mode : 'none', 'dot', 'icon'                                                                                    |
+| separator            | bool                              | true          | render separator line of events                                                                                          |
+| columnFormat         | string                            | 'single-left' | can be 'single-column-left', 'single-column-right', 'two-column'                                                         |
+| lineWidth            | int                               | 2             | timeline line width                                                                                                      |
+| lineColor            | string                            | '#007AFF'     | timeline line color                                                                                                      |
+| circleSize           | int                               | 16            | timeline circle size                                                                                                     |
+| circleColor          | string                            | '#007AFF'     | timeline circle color                                                                                                    |
+| dotColor             | string                            | 'white'       | timeline dot color (innerCircleType = 'dot')                                                                             |
+| icon                 | obj(image source)                 | null          | timeline icon (innerCircleType = 'color')                                                                                |
+| style                | object                            | null          | custom styles of Timeline container                                                                                      |
+| flatlistStyle        | object                            | null          | custom styles of inner FlatList                                                                                          |
+| timeStyle            | object                            | null          | custom styles of event time                                                                                              |
+| titleStyle           | object                            | null          | custom styles of event title                                                                                             |
+| descriptionStyle     | object                            | null          | custom styles of event description                                                                                       |
+| iconStyle            | object                            | null          | custom styles of event icon                                                                                              |
+| separatorStyle       | object                            | null          | custom styles of separator                                                                                               |
+| rowContainerStyle    | object                            | null          | custom styles of event container                                                                                         |
+| timeContainerStyle   | object                            | null          | custom styles of container of event time                                                                                 |
+| detailContainerStyle | object                            | null          | custom styles of container of event title and event description                                                          |
+| onEventPress         | function(event)                   | null          | function to be invoked when event was pressed                                                                            |
+| renderTime           | function({ item, index })         | null          | custom render event time                                                                                                 |
+| renderDetail         | function({ item, index })         | null          | custom render event title and event description                                                                          |
+| renderCircle         | function({ item, index, isLast }) | null          | custom render circle (`isLast` will be true on the last item if when `endWithCircle` is set to true with an index of -1) |
+| renderFullLine       | bool                              | false         | render event border on last timeline item                                                                                |
+| endWithCircle        | bool                              | false         | render a circle at the end of the last timeline item                                                                     |
+| flatListProps        | object                            | null          | FlatList properties (excling keyExtractor, see next)                                                                     |
+| keyExtractor         | function(item)                    | null          | FlatList keyExtractor                                                                                                    |
+| showTime             | boolean                           | true          | Time container options                                                                                                   |
 
 ## Shift problem
 

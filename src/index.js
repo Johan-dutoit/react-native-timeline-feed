@@ -39,6 +39,7 @@ export type Props = {
   renderEvent?: FlatListItemType => React.Element<any>,
   lineWidth?: number,
   renderFullLine?: boolean,
+  endWithCircle?: boolean,
   lineColor?: string,
   onEventPress?: (rowData: any) => void,
   detailContainerStyle?: ViewStyleProp,
@@ -101,7 +102,9 @@ class Timeline extends React.Component<Props, State> {
 
     const {
       columnFormat = defaultColumnFormat,
-      rowContainerStyle
+      rowContainerStyle,
+      endWithCircle,
+      data
     } = this.props;
 
     switch (columnFormat) {
@@ -132,7 +135,7 @@ class Timeline extends React.Component<Props, State> {
               {this.renderCircle({ item, index })}
             </View>
           ) : (
-            <View style={[styles.rowContainer, this.props.rowContainerStyle]}>
+            <View style={[styles.rowContainer, rowContainerStyle]}>
               {this.renderEvent({ item, index })}
               {this.renderTime({ item, index })}
               {this.renderCircle({ item, index })}
@@ -140,7 +143,22 @@ class Timeline extends React.Component<Props, State> {
           );
         break;
     }
-    return <View key={index}>{content}</View>;
+
+    let lastCircle = null;
+    if (endWithCircle && index + 1 === data.length) {
+      lastCircle = (
+        <View style={[styles.rowContainer, rowContainerStyle]}>
+          {this.renderCircle({ item, index: -1, isLast: true })}
+        </View>
+      );
+    }
+
+    return (
+      <View key={index}>
+        {content}
+        {lastCircle}
+      </View>
+    );
   };
 
   renderTime = ({ item, index }: FlatListItemType) => {
@@ -299,7 +317,7 @@ class Timeline extends React.Component<Props, State> {
   renderCircle({ item, index }: FlatListItemType) {
     const { renderCircle } = this.props;
     if (renderCircle) {
-      renderCircle({ item, index });
+      return renderCircle({ item, index });
     }
 
     const {
@@ -386,6 +404,12 @@ class Timeline extends React.Component<Props, State> {
     }
     return <View style={[styles.separator, separatorStyle]} />;
   }
+
+  getDataWithCircleAt = (endWithCircle: boolean) => {
+    if (!endWithCircle) {
+      return null;
+    }
+  };
 }
 
 const styles = StyleSheet.create({
