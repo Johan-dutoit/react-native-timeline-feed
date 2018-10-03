@@ -32,6 +32,7 @@ export type Props = {
   flatListProps?: Object,
   columnFormat?: "single-column-left" | "single-column-right" | "two-column",
   rowContainerStyle?: ViewStyleProp,
+  lastCircleContainerStyle?: ViewStyleProp,
   showTime?: boolean,
   renderTime?: FlatListItemType => React.Element<any>,
   timeContainerStyle?: ViewStyleProp,
@@ -144,19 +145,31 @@ class Timeline extends React.Component<Props, State> {
         break;
     }
 
-    let lastCircle = null;
-    if (endWithCircle && index + 1 === data.length) {
-      lastCircle = (
-        <View style={[styles.rowContainer, rowContainerStyle]}>
-          {this.renderCircle({ item, index: -1, isLast: true })}
-        </View>
-      );
-    }
+    const isLast = index + 1 === data.length;
+    return (
+      <React.Fragment>
+        <View key={index}>{content}</View>
+        {isLast &&
+          endWithCircle && (
+            <View key="lastCircle">{this.renderLastCircle(item)}</View>
+          )}
+      </React.Fragment>
+    );
+  };
+
+  renderLastCircle = (item: any) => {
+    const { rowContainerStyle, lastCircleContainerStyle } = this.props;
 
     return (
-      <View key={index}>
-        {content}
-        {lastCircle}
+      <View
+        style={[
+          styles.rowContainer,
+          styles.lastCircleContainerStyle,
+          rowContainerStyle,
+          lastCircleContainerStyle
+        ]}
+      >
+        {this.renderCircle({ item, index: -1, isLast: true })}
       </View>
     );
   };
@@ -419,22 +432,14 @@ const styles = StyleSheet.create({
   listview: {
     flex: 1
   },
-  sectionHeader: {
-    marginBottom: 15,
-    backgroundColor: "#007AFF",
-    height: 30,
-    justifyContent: "center"
-  },
-  sectionHeaderText: {
-    color: "#FFF",
-    fontSize: 18,
-    alignSelf: "center"
-  },
   rowContainer: {
     flexDirection: "row",
     flex: 1,
     //alignItems: 'stretch',
     justifyContent: "center"
+  },
+  lastCircleContainerStyle: {
+    marginBottom: 25
   },
   timeContainer: {
     minWidth: 45
