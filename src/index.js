@@ -233,10 +233,7 @@ class Timeline extends React.Component<Props, State> {
       lineColor = item.lineColor || defaultLineColor
     } = this.props;
 
-    const isLast = renderFullLine
-      ? !renderFullLine
-      : data.slice(-1)[0] === item;
-
+    const isLast = renderFullLine ? !renderFullLine : index + 1 === data.length;
     const borderColor = isLast ? "transparent" : lineColor;
 
     let opStyle = null;
@@ -417,12 +414,6 @@ class Timeline extends React.Component<Props, State> {
     }
     return <View style={[styles.separator, separatorStyle]} />;
   }
-
-  getDataWithCircleAt = (endWithCircle: boolean) => {
-    if (!endWithCircle) {
-      return null;
-    }
-  };
 }
 
 const styles = StyleSheet.create({
@@ -433,9 +424,8 @@ const styles = StyleSheet.create({
     flex: 1
   },
   rowContainer: {
-    flexDirection: "row",
     flex: 1,
-    //alignItems: 'stretch',
+    flexDirection: "row",
     justifyContent: "center"
   },
   lastCircleContainerStyle: {
@@ -472,7 +462,10 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     flex: 1
   },
-  detail: { paddingTop: 10, paddingBottom: 10 },
+  detail: {
+    paddingTop: 10,
+    paddingBottom: 10
+  },
   description: {
     marginTop: 10
   },
