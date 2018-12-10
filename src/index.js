@@ -241,7 +241,7 @@ class Timeline extends React.Component<Props, State> {
     switch (columnFormat) {
       case "single-column-left":
         opStyle = {
-          borderColor: lineColor,
+          borderColor: borderColor,
           borderLeftWidth: lineWidth,
           borderRightWidth: 0,
           marginLeft: 20,
@@ -250,7 +250,7 @@ class Timeline extends React.Component<Props, State> {
         break;
       case "single-column-right":
         opStyle = {
-          borderColor: lineColor,
+          borderColor: borderColor,
           borderLeftWidth: 0,
           borderRightWidth: lineWidth,
           marginRight: 20,
@@ -261,14 +261,14 @@ class Timeline extends React.Component<Props, State> {
         opStyle =
           index % 2 == 0
             ? {
-                borderColor: lineColor,
+                borderColor: borderColor,
                 borderLeftWidth: lineWidth,
                 borderRightWidth: 0,
                 marginLeft: 20,
                 paddingLeft: 20
               }
             : {
-                borderColor: lineColor,
+                borderColor: borderColor,
                 borderLeftWidth: 0,
                 borderRightWidth: lineWidth,
                 marginRight: 20,
