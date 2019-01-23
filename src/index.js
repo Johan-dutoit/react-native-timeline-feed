@@ -381,13 +381,13 @@ class Timeline extends React.Component<Props, State> {
     let innerCircleElement = null;
     switch (innerCircleType) {
       case "icon":
-        let iconSource = item.icon || icon;
+        const IconElement = item.icon || icon;
         let localIconStyle = {
           height: circleSize,
           width: circleSize
         };
         innerCircleElement = (
-          <Image source={iconSource} style={[localIconStyle, iconStyle]} />
+          <IconElement style={[localIconStyle, iconStyle]} />
         );
         break;
       case "dot":
