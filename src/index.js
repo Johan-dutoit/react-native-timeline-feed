@@ -4,7 +4,6 @@ import * as React from "react";
 import {
   StyleSheet,
   FlatList,
-  Image,
   View,
   Text,
   TouchableOpacity
@@ -52,7 +51,7 @@ export type Props = {
   circleColor?: string,
   innerCircleType?: "icon" | "dot",
   iconStyle?: ViewStyleProp,
-  icon?: any,
+  icon ?: React.ReactNode,
   dotColor?: string,
   circleStyle?: ViewStyleProp,
   separator?: boolean,

@@ -117,19 +117,38 @@ render(){
 ```jsx
 constructor(){
     super()
+
+    // Either of these will work and others should as well. You can provide your own icon component to be displayed.
+    // Image Component
+    const archeryImgSource = require('../img/archery.png');
+    const badmintonImgSource = require('../img/badminton.png');
+    const lunchImgSource = require('../img/lunch.png');
+    const soccerImgSource = require('../img/soccer.png');
+    const dumbbellImgSource = require('../img/dumbbell.png');
+    const vectorIconImgSource = await MaterialIcon.getImageSource("new-releases", 30, "black");
+    const ArcheryImage = (props) => <Image source={archeryImgSource} {...props} />;
+    const BadmintonImage = (props) => <Image source={badmintonImgSource} {...props} />;
+    const LunchImage = (props) => <Image source={lunchImgSource} {...props} />;
+    const SoccerImage = (props) => <Image source={soccerImgSource} {...props} />;
+    const DumbbellImage = (props) => <Image source={dumbbellImgSource} {...props} />;
+    const VectorIconImage = (props) => <Image source={vectorIconImgSource} {...props} />;
+
+    // VectorIcon Component
+    const NewIcon = (props) => <MaterialIcon name="new-releases" size={30} color="black" {...props} />;
+
     this.data = [
-      {time: '09:00', title: 'Archery Training', description: 'The Beginner Archery and Beginner Crossbow course does not require you to bring any equipment, since everything you need will be provided for the course. ',lineColor:'#009688', icon: require('../img/archery.png')},
-      {time: '10:45', title: 'Play Badminton', description: 'Badminton is a racquet sport played using racquets to hit a shuttlecock across a net.', icon: require('../img/badminton.png')},
-      {time: '12:00', title: 'Lunch', icon: require('../img/lunch.png')},
-      {time: '14:00', title: 'Watch Soccer', description: 'Team sport played between two teams of eleven players with a spherical ball. ',lineColor:'#009688', icon: require('../img/soccer.png')},
-      {time: '16:30', title: 'Go to Fitness center', description: 'Look out for the Best Gym & Fitness Centers around me :)', icon: require('../img/dumbbell.png')}
+      {time: '09:00', title: 'Archery Training', description: 'The Beginner Archery and Beginner Crossbow course does not require you to bring any equipment, since everything you need will be provided for the course. ',lineColor:'#009688', icon: ArcheryImage},
+      {time: '10:45', title: 'Play Badminton', description: 'Badminton is a racquet sport played using racquets to hit a shuttlecock across a net.', icon: BadmintonImage},
+      {time: '12:00', title: 'Lunch', icon: LunchImage},
+      {time: '14:00', title: 'Watch Soccer', description: 'Team sport played between two teams of eleven players with a spherical ball. ',lineColor:'#009688', icon: SoccerImage},
+      {time: '16:30', title: 'Go to Fitness center', description: 'Look out for the Best Gym & Fitness Centers around me :)', icon: DumbbellImage}
     ]
   }
 render(){
     return(
         <Timeline
           //..other props
-          innerCircleType='icon
+          innerCircleType='icon'
         />
     )
 }
@@ -142,40 +161,59 @@ render(){
 ```jsx
 constructor(){
     super()
+
+    // Either of these will work and others should as well. You can provide your own icon component to be displayed.
+    // Image Component
+    const archeryImgSource = require('../img/archery.png');
+    const badmintonImgSource = require('../img/badminton.png');
+    const lunchImgSource = require('../img/lunch.png');
+    const soccerImgSource = require('../img/soccer.png');
+    const dumbbellImgSource = require('../img/dumbbell.png');
+    const vectorIconImgSource = await MaterialIcon.getImageSource("new-releases", 30, "black");
+    const ArcheryImage = (props) => <Image source={archeryImgSource} {...props} />;
+    const BadmintonImage = (props) => <Image source={badmintonImgSource} {...props} />;
+    const LunchImage = (props) => <Image source={lunchImgSource} {...props} />;
+    const SoccerImage = (props) => <Image source={soccerImgSource} {...props} />;
+    const DumbbellImage = (props) => <Image source={dumbbellImgSource} {...props} />;
+    const VectorIconImage = (props) => <Image source={vectorIconImgSource} {...props} />;
+
+    // VectorIcon Component
+    const NewIcon = (props) => <MaterialIcon name="new-releases" size={30} color="black" {...props} />;
+
     this.data = [
       {
         time: '09:00',
         title: 'Archery Training',
         description: 'The Beginner Archery and Beginner Crossbow course does not require you to bring any equipment, since everything you need will be provided for the course. ',
         lineColor:'#009688',
-        icon: require('../img/archery.png'),
+        icon: ArcheryImage,
         imageUrl: 'https://cloud.githubusercontent.com/assets/21040043/24240340/c0f96b3a-0fe3-11e7-8964-fe66e4d9be7a.jpg'
       },
       {
         time: '10:45',
         title: 'Play Badminton',
         description: 'Badminton is a racquet sport played using racquets to hit a shuttlecock across a net.',
-        icon: require('../img/badminton.png'),
+        icon: BadmintonImage,
         imageUrl: 'https://cloud.githubusercontent.com/assets/21040043/24240405/0ba41234-0fe4-11e7-919b-c3f88ced349c.jpg'
       },
       {
         time: '12:00',
         title: 'Lunch',
-        icon: require('../img/lunch.png'),
+        icon: LunchImage,
       },
       {
         time: '14:00',
         title: 'Watch Soccer',
         description: 'Team sport played between two teams of eleven players with a spherical ball. ',
         lineColor:'#009688',
-        icon: require('../img/soccer.png'),
+        icon: SoccerImage,
         imageUrl: 'https://cloud.githubusercontent.com/assets/21040043/24240419/1f553dee-0fe4-11e7-8638-6025682232b1.jpg'
       },
       {
         time: '16:30',
         title: 'Go to Fitness center',
         description: 'Look out for the Best Gym & Fitness Centers around me :)',
-        icon: require('../img/dumbbell.png'),
+        icon: DumbbellImage,
         imageUrl: 'https://cloud.githubusercontent.com/assets/21040043/24240422/20d84f6c-0fe4-11e7-8f1d-9dbc594d0cfa.jpg'
       }
     ]
@@ -310,7 +348,7 @@ render(){
 | circleSize  | int               | same as circleSize of 'Timeline'  | event circle size                         |
 | circleColor | string            | same as circleColor of 'Timeline' | event circle color                        |
 | dotColor    | string            | same as dotColor of 'Timeline'    | event dot color (innerCircleType = 'dot') |
-| icon        | obj(image source) | same as icon of 'Timeline'        | event icon (innerCircleType = 'color')    |
+| icon        | React.ReactNode (component) | same as icon of 'Timeline'        | event icon (innerCircleType = 'color')    |
 
 #### Timeline:
 
@@ -325,7 +363,7 @@ render(){
 | circleSize               | int                               | 16            | timeline circle size                                                                                                     |
 | circleColor              | string                            | '#007AFF'     | timeline circle color                                                                                                    |
 | dotColor                 | string                            | 'white'       | timeline dot color (innerCircleType = 'dot')                                                                             |
-| icon                     | obj(image source)                 | null          | timeline icon (innerCircleType = 'color')                                                                                |
+| icon                     | React.ReactNode (component)                 | null          | timeline icon (innerCircleType = 'color')                                                                                |
 | style                    | object                            | null          | custom styles of Timeline container                                                                                      |
 | flatlistStyle            | object                            | null          | custom styles of inner FlatList                                                                                          |
 | timeStyle                | object                            | null          | custom styles of event time                                                                                              |
@@ -382,3 +420,9 @@ render(){
     )
 }
 ``` -->
+
+## Adapt vectorIcon to be smaller than circleSize
+If you want to make the VectorIcon, or in general the Component you provide smaller than the circleSize (default 16), set an `iconStyle` of ```iconStyle: {
+  width: iconSize || undefined
+  height: iconSize || undefined
+}```
