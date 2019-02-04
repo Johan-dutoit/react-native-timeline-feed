@@ -2,6 +2,7 @@
 
 Timeline component for React Native App work for Android and iOS
 
+![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
 [![NPM Version](https://img.shields.io/npm/v/react-native-timeline-feed.svg?style=flat)](https://www.npmjs.com/package/react-native-timeline-feed)
 [![NPM Downloads](https://img.shields.io/npm/dm/react-native-timeline-feed.svg?style=flat)](https://www.npmjs.com/package/react-native-timeline-feed)
 
@@ -338,16 +339,16 @@ render(){
 
 #### Data Object:
 
-| Property    | Type              | Default                           | Description                               |
-| ----------- | ----------------- | --------------------------------- | ----------------------------------------- |
-| time        | string            | null                              | event time                                |
-| title       | string            | null                              | event title                               |
-| description | string            | null                              | event description                         |
-| lineWidth   | int               | same as lineWidth of 'Timeline'   | event line width                          |
-| lineColor   | string            | same as lineColor of 'Timeline'   | event line color                          |
-| circleSize  | int               | same as circleSize of 'Timeline'  | event circle size                         |
-| circleColor | string            | same as circleColor of 'Timeline' | event circle color                        |
-| dotColor    | string            | same as dotColor of 'Timeline'    | event dot color (innerCircleType = 'dot') |
+| Property    | Type                        | Default                           | Description                               |
+| ----------- | --------------------------- | --------------------------------- | ----------------------------------------- |
+| time        | string                      | null                              | event time                                |
+| title       | string                      | null                              | event title                               |
+| description | string                      | null                              | event description                         |
+| lineWidth   | int                         | same as lineWidth of 'Timeline'   | event line width                          |
+| lineColor   | string                      | same as lineColor of 'Timeline'   | event line color                          |
+| circleSize  | int                         | same as circleSize of 'Timeline'  | event circle size                         |
+| circleColor | string                      | same as circleColor of 'Timeline' | event circle color                        |
+| dotColor    | string                      | same as dotColor of 'Timeline'    | event dot color (innerCircleType = 'dot') |
 | icon        | React.ReactNode (component) | same as icon of 'Timeline'        | event icon (innerCircleType = 'color')    |
 
 #### Timeline:
@@ -363,7 +364,7 @@ render(){
 | circleSize               | int                               | 16            | timeline circle size                                                                                                     |
 | circleColor              | string                            | '#007AFF'     | timeline circle color                                                                                                    |
 | dotColor                 | string                            | 'white'       | timeline dot color (innerCircleType = 'dot')                                                                             |
-| icon                     | React.ReactNode (component)                 | null          | timeline icon (innerCircleType = 'color')                                                                                |
+| icon                     | React.ReactNode (component)       | null          | timeline icon (innerCircleType = 'color')                                                                                |
 | style                    | object                            | null          | custom styles of Timeline container                                                                                      |
 | flatlistStyle            | object                            | null          | custom styles of inner FlatList                                                                                          |
 | timeStyle                | object                            | null          | custom styles of event time                                                                                              |
@@ -422,7 +423,5 @@ render(){
 ``` -->
 
 ## Adapt vectorIcon to be smaller than circleSize
-If you want to make the VectorIcon, or in general the Component you provide smaller than the circleSize (default 16), set an `iconStyle` of ```iconStyle: {
-  width: iconSize || undefined
-  height: iconSize || undefined
-}```
+
+If you want to make the VectorIcon, or in general the Component you provide smaller than the circleSize (default 16), set an `iconStyle` of `iconStyle: { width: iconSize || undefined height: iconSize || undefined }`
