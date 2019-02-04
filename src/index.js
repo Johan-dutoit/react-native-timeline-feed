@@ -74,8 +74,21 @@ type State = {
 class Timeline extends React.Component<Props, State> {
   state = {
     x: 0,
-    width: 0
+    width: 0,
+    maxLineWidth: DEFAULT_LINE_WIDTH,
   };
+
+  static getDerivedStateFromProps (props, state) {
+    let maxLineWidth = props.lineWidth || DEFAULT_LINE_WIDTH
+
+    (props.data || []).forEach(function (item) {
+      maxLineWidth = Math.max(maxLineWidth, item.lineWidth || maxLineWidth)
+    })
+
+    return {
+      ...state,
+    }
+  }
 
   render() {
     const { style, data, flatListStyle, flatListProps, keyExtractor } = this.props;
@@ -223,6 +236,7 @@ class Timeline extends React.Component<Props, State> {
 
     const lineColorToUse = item.lineColor || lineColor || DEFAULT_LINE_COLOR;
     const lineWidthToUse = item.lineWidth || lineWidth || DEFAULT_LINE_WIDTH;
+    const marginDelta = Math.floor((this.state.maxLineWidth - lineWidthToUse) / 2.0);
 
     const isLast = renderFullLine ? !renderFullLine : index + 1 === data.length;
     const borderColor = isLast ? 'transparent' : lineColorToUse;
@@ -235,8 +249,8 @@ class Timeline extends React.Component<Props, State> {
           borderColor: borderColor,
           borderLeftWidth: lineWidthToUse,
           borderRightWidth: 0,
-          marginLeft: 20,
-          paddingLeft: 20
+          marginLeft: 20 + marginDelta,
+          paddingLeft: 20 + marginDelta
         };
         break;
       case 'single-column-right':
@@ -244,8 +258,8 @@ class Timeline extends React.Component<Props, State> {
           borderColor: borderColor,
           borderLeftWidth: 0,
           borderRightWidth: lineWidthToUse,
-          marginRight: 20,
-          paddingRight: 20
+          marginRight: 20 + marginDelta,
+          paddingRight: 20 + marginDelta
         };
         break;
       case 'two-column':
@@ -255,15 +269,15 @@ class Timeline extends React.Component<Props, State> {
                 borderColor: borderColor,
                 borderLeftWidth: lineWidthToUse,
                 borderRightWidth: 0,
-                marginLeft: 20,
-                paddingLeft: 20
+                marginLeft: 20 + marginDelta,
+                paddingLeft: 20 + marginDelta
               }
             : {
                 borderColor: borderColor,
                 borderLeftWidth: 0,
                 borderRightWidth: lineWidthToUse,
-                marginRight: 20,
-                paddingRight: 20
+                marginRight: 20 + marginDelta,
+                paddingRight: 20 + marginDelta
               };
         break;
     }
