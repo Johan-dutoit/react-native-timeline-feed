@@ -333,7 +333,7 @@ class Timeline extends React.Component<Props, State> {
 
     const circleSizeToUse = item.circleSize || circleSize || DEFAULT_CIRCLE_SIZE;
     const circleColorToUse = item.circleColor || circleColor || DEFAULT_CIRCLE_COLOR;
-    const lineWidthToUse = item.lineWidth || lineWidth || DEFAULT_LINE_WIDTH;
+    const lineWidthToUse = this.state.maxLineWidth;
 
     const { x, width } = this.state;
 
@@ -345,7 +345,8 @@ class Timeline extends React.Component<Props, State> {
           height: x ? circleSizeToUse : 0,
           borderRadius: circleSizeToUse / 2,
           backgroundColor: circleColorToUse,
-          left: x - circleSizeToUse / 2 + (lineWidthToUse - 1) / 2
+          left: x - circleSizeToUse / 2 + (lineWidthToUse - 1) / 2,
+          top: - circleSizeToUse / 2
         };
         break;
       case 'single-column-right':
@@ -354,7 +355,8 @@ class Timeline extends React.Component<Props, State> {
           height: width ? circleSizeToUse : 0,
           borderRadius: circleSizeToUse / 2,
           backgroundColor: circleColorToUse,
-          left: width - circleSizeToUse / 2 - (lineWidthToUse - 1) / 2
+          left: width - circleSizeToUse / 2 - (lineWidthToUse - 1) / 2,
+          top: - circleSizeToUse / 2
         };
         break;
       case 'two-column':
@@ -363,7 +365,8 @@ class Timeline extends React.Component<Props, State> {
           height: width ? circleSizeToUse : 0,
           borderRadius: circleSizeToUse / 2,
           backgroundColor: circleColorToUse,
-          left: width - circleSizeToUse / 2 - (lineWidthToUse - 1) / 2
+          left: width - circleSizeToUse / 2 - (lineWidthToUse - 1) / 2,
+          top: - circleSizeToUse / 2
         };
         break;
     }
