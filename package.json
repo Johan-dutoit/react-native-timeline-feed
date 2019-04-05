@@ -1,6 +1,6 @@
 {
   "name": "react-native-timeline-feed",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "description": "Timeline component for React Native",
   "main": "lib/index.js",
   "scripts": {
