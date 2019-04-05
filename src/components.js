@@ -12,81 +12,61 @@ import {
   type RenderProps,
   type TimeProps,
   type TitleProps,
+  type DescriptionProps,
   type VerticalProps,
-  type CircleProps
+  type LineProps,
+  type CircleProps,
+  type DotProps
 } from './types';
 
-import {
-  DEFAULT_CIRCLE_COLOR,
-  DEFAULT_DOT_COLOR,
-  DEFAULT_LINE_COLOR,
-  DEFAULT_LINE_WIDTH
-} from './defaults';
-
-export function Row({ item, index, props, children, style }: RowProps) {
+export function Row({ children, style }: RowProps) {
   return <View style={[styles.rowContainer, style]}>{children}</View>;
 }
 
-export function Event({ item, index, props, children, style }: EventProps) {
-  return <View style={[styles.eventContainer, style]}>{children}</View>;
-}
-
-export function Time({ item, index, props, style, textStyle }: TimeProps) {
-  const { time } = item;
-
+export function Time({ children, style, textStyle }: TimeProps) {
   return (
     <View style={[styles.timeContainer, style]}>
-      <Text style={textStyle}>{time}</Text>
+      <Text style={textStyle}>{children}</Text>
     </View>
   );
 }
 
-export function Title({ item, index, props, textStyle }: TitleProps) {
-  const { title } = item;
+export function Event({ children, style }: EventProps) {
+  return <View style={[styles.eventContainer, style]}>{children}</View>;
+}
 
+export function Title({ children, textStyle }: TitleProps) {
   return (
     <>
-      <Text style={[styles.titleText, textStyle]}>{title}</Text>
+      <Text style={[styles.titleText, textStyle]}>{children}</Text>
     </>
   );
 }
 
-export function Description({ item, index, props }: RenderProps) {
-  const { description } = item;
-
+export function Description({ children, textStyle }: DescriptionProps) {
   return (
     <>
-      <Text>{description}</Text>
+      <Text style={[styles.descriptionText, textStyle]}>{children}</Text>
     </>
   );
 }
 
-export function VerticalSeparator({ item, index, props, children }: VerticalProps) {
-  return <View style={styles.separatorContainer}>{children}</View>;
+export function VerticalSeparator({ children, style }: VerticalProps) {
+  return <View style={[styles.separatorContainer, style]}>{children}</View>;
 }
 
-export function Line({ item, index, props }: RenderProps) {
-  const { lineWidth, lineColor } = item;
-  const color = lineColor || props.lineColor || DEFAULT_LINE_COLOR;
-  const width = lineWidth || props.lineWidth || DEFAULT_LINE_WIDTH;
-
-  return <View style={[styles.line, { width, backgroundColor: color }]} />;
+export function Line({ width, color, style }: LineProps) {
+  return <View style={[styles.line, style, { width: width, backgroundColor: color }]} />;
 }
 
-export function Dot({ item, index, props }: RenderProps) {
-  const { dotColor } = item;
-  const color = dotColor || props.dotColor || DEFAULT_DOT_COLOR;
-  return <View style={[styles.dotContainer, { backgroundColor: color }]} />;
-}
-
-export function Circle({ item, index, props, children, style }: CircleProps) {
-  const { circleColor } = item;
-
-  const color = circleColor || props.circleColor || DEFAULT_CIRCLE_COLOR;
-
+export function Circle({ color, children, style }: CircleProps) {
   return (
     <View style={[styles.circleContainer, style, { backgroundColor: color }]}>{children}</View>
   );
+}
+
+export function Dot({ color, style }: DotProps) {
+  return <View style={[styles.dotContainer, style, { backgroundColor: color }]} />;
 }
 
 const styles = StyleSheet.create({
@@ -129,5 +109,9 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: 16,
     fontWeight: 'bold'
+  },
+  descriptionText: {
+    fontSize: 14,
+    fontWeight: 'normal'
   }
 });

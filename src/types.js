@@ -40,48 +40,49 @@ export type RenderProps = {
 };
 
 export type RowProps = {
-  item: Item,
-  index: number,
-  props: TimelineProps,
   children: React.Node,
   style?: ViewStyleProp
 };
 
 export type TimeProps = {
-  item: Item,
-  index: number,
-  props: TimelineProps,
+  children?: string,
   style?: ViewStyleProp,
   textStyle?: TextStyleProp
 };
 
 export type EventProps = {
-  item: Item,
-  index: number,
-  props: TimelineProps,
   children: React.Node,
   style?: ViewStyleProp
 };
 
 export type TitleProps = {
-  item: Item,
-  index: number,
-  props: TimelineProps,
+  children?: string,
   textStyle?: TextStyleProp
 };
 
-export type CircleProps = {
-  item: Item,
-  index: number,
-  props: TimelineProps,
+export type DescriptionProps = {
+  children?: string,
+  textStyle?: TextStyleProp
+};
+
+export type VerticalProps = {
   children: React.Node,
   style?: ViewStyleProp
 };
 
-export type VerticalProps = {
-  item: Item,
-  index: number,
-  props: TimelineProps,
+export type LineProps = {
+  width: number,
+  color: string,
+  style?: ViewStyleProp
+};
+
+export type DotProps = {
+  color: string,
+  style?: ViewStyleProp
+};
+
+export type CircleProps = {
+  color: string,
   children: React.Node,
   style?: ViewStyleProp
 };

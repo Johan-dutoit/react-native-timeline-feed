@@ -58,36 +58,35 @@ export default class App extends React.Component<*> {
     );
   }
 
-  renderFeedItem = (renderProps: RenderProps) => {
-    const { index } = renderProps;
+  renderFeedItem = ({ item, index, props }: RenderProps) => {
     if (index % 2 === 0) {
       return (
         <View style={styles.row} key={index}>
-          <Timeline.Time {...renderProps} />
-          <Timeline.VerticalSeparator {...renderProps}>
-            <Timeline.Circle {...renderProps}>
-              <Timeline.Dot {...renderProps} />
+          <Timeline.Time>{item.time}</Timeline.Time>
+          <Timeline.VerticalSeparator>
+            <Timeline.Circle color="black">
+              <Timeline.Dot color="white" />
             </Timeline.Circle>
           </Timeline.VerticalSeparator>
-          <Timeline.Event {...renderProps} style={styles.event}>
-            <Timeline.Title {...renderProps} />
-            <Timeline.Description {...renderProps} />
+          <Timeline.Event style={styles.event}>
+            <Timeline.Title>{item.title}</Timeline.Title>
+            <Timeline.Description>{item.description}</Timeline.Description>
           </Timeline.Event>
         </View>
       );
     } else {
       return (
         <View style={styles.row} key={index}>
-          <Timeline.Event {...renderProps} style={styles.event}>
-            <Timeline.Title {...renderProps} />
-            <Timeline.Description {...renderProps} />
+          <Timeline.Event style={styles.event}>
+            <Timeline.Title>{item.title}</Timeline.Title>
+            <Timeline.Description>{item.description}</Timeline.Description>
           </Timeline.Event>
-          <Timeline.VerticalSeparator {...renderProps}>
-            <Timeline.Circle {...renderProps}>
-              <Timeline.Dot {...renderProps} />
+          <Timeline.VerticalSeparator>
+            <Timeline.Circle color="black">
+              <Timeline.Dot color="white" />
             </Timeline.Circle>
           </Timeline.VerticalSeparator>
-          <Timeline.Time {...renderProps} />
+          <Timeline.Time>{item.time}</Timeline.Time>
         </View>
       );
     }

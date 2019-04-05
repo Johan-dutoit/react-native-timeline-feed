@@ -2,10 +2,18 @@
  * @format
  * @flow
  **/
+
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 
 import { type RenderProps } from './types';
+
+import {
+  DEFAULT_CIRCLE_COLOR,
+  DEFAULT_DOT_COLOR,
+  DEFAULT_LINE_COLOR,
+  DEFAULT_LINE_WIDTH
+} from './defaults';
 
 import {
   Row,
@@ -19,37 +27,61 @@ import {
   Dot
 } from './components';
 
-export const SingleColumnLeft = (renderProps: RenderProps) => (
-  <Row {...renderProps}>
-    <Time {...renderProps} />
-    <VerticalSeparator {...renderProps}>
-      <Line {...renderProps} />
-      <Circle {...renderProps}>
-        <Dot {...renderProps} />
-      </Circle>
-    </VerticalSeparator>
-    <Event {...renderProps}>
-      <Title {...renderProps} />
-      <Description {...renderProps} />
-    </Event>
-  </Row>
-);
+const getItemProps = ({ item, props }: RenderProps) => {
+  const lineColor = item.lineColor || props.lineColor || DEFAULT_LINE_COLOR;
+  const lineWidth = item.lineWidth || props.lineWidth || DEFAULT_LINE_WIDTH;
 
-export const SingleColumnRight = (renderProps: RenderProps) => (
-  <Row {...renderProps}>
-    <Event {...renderProps} style={styles.rightAlign}>
-      <Title {...renderProps} />
-      <Description {...renderProps} />
-    </Event>
-    <VerticalSeparator {...renderProps}>
-      <Line {...renderProps} />
-      <Circle {...renderProps}>
-        <Dot {...renderProps} />
-      </Circle>
-    </VerticalSeparator>
-    <Time {...renderProps} />
-  </Row>
-);
+  const circleColor = item.circleColor || props.circleColor || DEFAULT_CIRCLE_COLOR;
+
+  const dotColor = item.dotColor || props.dotColor || DEFAULT_DOT_COLOR;
+
+  return {
+    lineColor,
+    lineWidth,
+    circleColor,
+    dotColor
+  };
+};
+
+export const SingleColumnLeft = ({ item, index, props }: RenderProps) => {
+  const { lineColor, lineWidth, circleColor, dotColor } = getItemProps({ item, index, props });
+
+  return (
+    <Row>
+      <Time time={item.time} />
+      <VerticalSeparator>
+        <Line color={lineColor} width={lineWidth} />
+        <Circle color={circleColor}>
+          <Dot color={dotColor} />
+        </Circle>
+      </VerticalSeparator>
+      <Event>
+        <Title>{item.title}</Title>
+        <Description>{item.description}</Description>
+      </Event>
+    </Row>
+  );
+};
+
+export const SingleColumnRight = ({ item, index, props }: RenderProps) => {
+  const { lineColor, lineWidth, circleColor, dotColor } = getItemProps({ item, index, props });
+
+  return (
+    <Row>
+      <Event style={styles.rightAlign}>
+        <Title>{item.title}</Title>
+        <Description>{item.description}</Description>
+      </Event>
+      <VerticalSeparator>
+        <Line color={lineColor} width={lineWidth} />
+        <Circle color={circleColor}>
+          <Dot color={dotColor} />
+        </Circle>
+      </VerticalSeparator>
+      <Time time={item.time} />
+    </Row>
+  );
+};
 
 /*
 if (index % 2 === 0) {
