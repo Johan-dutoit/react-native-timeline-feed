@@ -51,7 +51,7 @@ export type TimeProps = {
 };
 
 export type EventProps = {
-  children: React.Node,
+  children?: React.Node,
   style?: ViewStyleProp
 };
 
@@ -83,7 +83,7 @@ export type DotProps = {
 
 export type CircleProps = {
   color: string,
-  children: React.Node,
+  children?: React.Node,
   style?: ViewStyleProp
 };
 

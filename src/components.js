@@ -79,8 +79,7 @@ const styles = StyleSheet.create({
     minWidth: 45
   },
   separatorContainer: {
-    flex: 1,
-    minHeight: 90,
+    minHeight: 60,
     alignItems: 'center'
   },
   line: {
@@ -91,7 +90,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 8
   },
   circleContainer: {
-    position: 'absolute',
     width: 16,
     height: 16,
     borderRadius: 8,
