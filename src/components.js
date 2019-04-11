@@ -85,8 +85,6 @@ const styles = StyleSheet.create({
   line: {
     flex: 1,
     backgroundColor: 'black',
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
     marginHorizontal: 8
   },
   circleContainer: {
