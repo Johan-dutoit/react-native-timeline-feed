@@ -1,7 +1,10 @@
 {
-  "extends": ["prettier"],
+  "extends": "universe/native",
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": "error"
+  },
+  "parserOptions": {
+    "sourceType": "module"
   }
 }
