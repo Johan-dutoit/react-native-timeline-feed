@@ -1,22 +1,20 @@
 /**
  * @format
- * @flow
  **/
 
 import * as React from 'react';
-import { StyleSheet, FlatList, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 import {
-  type RowProps,
-  type EventProps,
-  type RenderProps,
-  type TimeProps,
-  type TitleProps,
-  type DescriptionProps,
-  type VerticalProps,
-  type LineProps,
-  type CircleProps,
-  type DotProps
+  RowProps,
+  TimeProps,
+  EventProps,
+  TitleProps,
+  DescriptionProps,
+  VerticalProps,
+  LineProps,
+  CircleProps,
+  DotProps
 } from './types';
 
 export function Row({ children, style }: RowProps) {

@@ -1,6 +1,5 @@
 /**
  * @format
- * @flow
  **/
 
 export const DEFAULT_LINE_WIDTH = 2;

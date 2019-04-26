@@ -1,13 +1,9 @@
 /**
  * @format
- * @flow
  **/
 
 import * as React from 'react';
-import { StyleSheet, FlatList, View, Text, TouchableOpacity } from 'react-native';
-import type { ViewStyleProp, TextStyleProp } from 'react-native/Libraries/StyleSheet/StyleSheet';
-
-import { type FlatListItemProps, type Item, type RenderProps, type TimelineProps } from './types';
+import { FlatList, ListRenderItemInfo } from 'react-native';
 
 import {
   Row,
@@ -28,14 +24,18 @@ import {
   DEFAULT_LINE_WIDTH
 } from './defaults';
 
-import * as presets from './presets';
+import Presets from './presets';
 
-class Timeline extends React.Component<TimelineProps> {
+import { TimelineProps, Preset, ItemProps, RenderProps } from './types';
+
+class Timeline extends React.PureComponent<TimelineProps> {
   static defaultProps = {
     lineWidth: DEFAULT_LINE_WIDTH,
     lineColor: DEFAULT_LINE_COLOR,
     circleColor: DEFAULT_CIRCLE_COLOR,
-    dotColor: DEFAULT_DOT_COLOR
+    dotColor: DEFAULT_DOT_COLOR,
+    endWithCircle: false,
+    preset: Preset.SingleColumnLeft
   };
 
   static Row = Row;
@@ -60,21 +60,22 @@ class Timeline extends React.Component<TimelineProps> {
     );
   }
 
-  renderItem = ({ item, index }: FlatListItemProps) => {
-    const { props } = this;
-    const { renderFeedItem, preset = 'SingleColumnLeft' } = props;
+  renderItem = ({ item, index }: ListRenderItemInfo<ItemProps>) => {
+    const { renderFeedItem, preset, data } = this.props;
+    const isLast = data.length - 1 === index;
 
     const renderProps: RenderProps = {
       item,
       index,
-      props
+      isLast,
+      props: this.props
     };
 
     if (renderFeedItem) {
       return renderFeedItem(renderProps);
     }
 
-    const Component = presets[preset];
+    const Component = Presets[preset];
     if (Component == null) {
       console.warn(`Invalid preset (${preset}) specified. See 'Presets' for more options.`);
       return null;

@@ -1,11 +1,20 @@
 {
   "name": "react-native-timeline-feed",
-  "version": "2.0.0-alpha.5",
+  "version": "2.0.0-alpha.7",
   "description": "Timeline component for React Native",
-  "main": "src/index.js",
+  "main": "lib/index.tsx",
+  "files": [
+    "LICENSE",
+    "Readme.md",
+    "CHANGELOG.md",
+    "lib"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "flow": "flow"
+    "clean": "rimraf ./lib &&  mkdirp lib",
+    "copy": "cp src/** lib/",
+    "build": "tsc",
+    "package": "yarn clean && yarn copy && yarn build && npm pack"
   },
   "repository": {
     "type": "git",
@@ -33,12 +42,17 @@
     "react-native": ">= 0.44"
   },
   "devDependencies": {
+    "@types/react": "^16.8.3",
+    "@types/react-native": "^0.57.50",
     "eslint-config-prettier": "^3.1.0",
-    "eslint-plugin-prettier": "^3.0.0",
     "eslint-config-universe": "1.0.7",
-    "flow-bin": "0.92.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "mkdirp": "^0.5.1",
     "prettier": "1.14.3",
-    "react": "16.5.0",
-    "react-native": "0.57.1"
+    "react": "16.8.3",
+    "react-native": "0.59.5",
+    "rimraf": "^2.6.3",
+    "tslib": "^1.9.3",
+    "typescript": "^3.4.5"
   }
 }
