@@ -15,7 +15,7 @@ import {
   LineProps,
   CircleProps,
   DotProps
-} from './types';
+} from './Types';
 
 export function Row({ children, style }: RowProps) {
   return <View style={[styles.rowContainer, style]}>{children}</View>;

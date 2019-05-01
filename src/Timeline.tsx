@@ -15,18 +15,18 @@ import {
   Line,
   Circle,
   Dot
-} from './components';
+} from './Components';
 
 import {
   DEFAULT_CIRCLE_COLOR,
   DEFAULT_DOT_COLOR,
   DEFAULT_LINE_COLOR,
   DEFAULT_LINE_WIDTH
-} from './defaults';
+} from './Defaults';
 
-import Presets from './presets';
+import Presets from './Presets';
 
-import { TimelineProps, Preset, ItemProps, RenderProps } from './types';
+import { TimelineProps, Preset, ItemProps, RenderProps } from './Types';
 
 class Timeline extends React.PureComponent<TimelineProps> {
   static defaultProps = {

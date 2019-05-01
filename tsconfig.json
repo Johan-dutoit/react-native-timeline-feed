@@ -1,35 +1,21 @@
 {
   "compilerOptions": {
-    "target": "es2015",
-    "module": "es2015",
-    "outDir": "lib",
-    "sourceMap": true,
-    "experimentalDecorators": true,
-    "jsx": "react-native",
-    "lib": ["es2016"],
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node",
-    "noEmitHelpers": true,
-    "importHelpers": true,
+    "declaration": true,
+    "outDir": "./lib",
     "strict": true,
-    "noImplicitReturns": true
-    // "rootDir": "./build/dist"
-
-    // Build settings.
-    // "jsx": "react",
-    // "target": "es2015",
-
-    // // Type definition settings.
-    // "lib": ["es2017"],
-    // "skipLibCheck": true,
-
-    // // TSLib settings.
-    // "importHelpers": true,
-
-    // // Module resolution settings.
-    // "module": "es2015",
-    // "moduleResolution": "node",
-    // "esModuleInterop": true,
-    // "allowSyntheticDefaultImports": true
-  }
+    "jsx": "react-native",
+    "target": "es6",
+    "module": "es6",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "experimentalDecorators": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "lib": ["es6"],
+    "typeRoots": ["./node_modules/@types", "./@types"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

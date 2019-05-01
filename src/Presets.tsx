@@ -5,14 +5,14 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 
-import { RenderProps, Preset } from './types';
+import { RenderProps, Preset } from './Types';
 
 import {
   DEFAULT_CIRCLE_COLOR,
   DEFAULT_DOT_COLOR,
   DEFAULT_LINE_COLOR,
   DEFAULT_LINE_WIDTH
-} from './defaults';
+} from './Defaults';
 
 import {
   Row,
@@ -24,7 +24,7 @@ import {
   Line,
   Circle,
   Dot
-} from './components';
+} from './Components';
 
 const getItemProps = ({ item, props }: RenderProps) => {
   const lineColor = item.lineColor || props.lineColor || DEFAULT_LINE_COLOR;
@@ -67,18 +67,17 @@ export const SingleColumnLeft = ({ item, index, isLast, props }: RenderProps) =>
           <Description>{item.description}</Description>
         </Event>
       </Row>
-      {isLast &&
-        endWithCircle && (
-          <Row key={`${index}_last`}>
-            <Time />
-            <VerticalSeparator>
-              <Circle color={circleColor}>
-                <Dot color={dotColor} />
-              </Circle>
-            </VerticalSeparator>
-            <Event />
-          </Row>
-        )}
+      {isLast && endWithCircle && (
+        <Row key={`${index}_last`}>
+          <Time />
+          <VerticalSeparator>
+            <Circle color={circleColor}>
+              <Dot color={dotColor} />
+            </Circle>
+          </VerticalSeparator>
+          <Event />
+        </Row>
+      )}
     </React.Fragment>
   );
 };
@@ -108,18 +107,17 @@ export const SingleColumnRight = ({ item, index, isLast, props }: RenderProps) =
         </VerticalSeparator>
         <Time>{item.time}</Time>
       </Row>
-      {isLast &&
-        endWithCircle && (
-          <Row key={`${index}_last`}>
-            <Event />
-            <VerticalSeparator>
-              <Circle color={circleColor}>
-                <Dot color={dotColor} />
-              </Circle>
-            </VerticalSeparator>
-            <Time />
-          </Row>
-        )}
+      {isLast && endWithCircle && (
+        <Row key={`${index}_last`}>
+          <Event />
+          <VerticalSeparator>
+            <Circle color={circleColor}>
+              <Dot color={dotColor} />
+            </Circle>
+          </VerticalSeparator>
+          <Time />
+        </Row>
+      )}
     </React.Fragment>
   );
 };

@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { ViewStyle, TextStyle, FlatListProps } from 'react-native';
 
-import { Omit } from './utils';
+import { Omit } from './Utils';
 
 export interface ItemProps {
   title?: string;

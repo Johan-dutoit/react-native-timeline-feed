@@ -2,9 +2,13 @@
 
 # Changelog
 
-_[BREAKING]_
+## [2.0.0-alpha.8]
+
+Removed flow and replaced with TypeScript.
 
 ## [2.0.0-alpha.0]
+
+_[BREAKING]_
 
 A complete redesign to the way the timeline works. This is to allow more flexibility. As this is still alpha it's subject to change.
 See the examples folder for proposed changes.
