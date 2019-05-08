@@ -50,29 +50,43 @@ export const SingleColumnLeft = ({ item, index, isLast, props }: RenderProps) =>
     props
   });
 
-  const { endWithCircle } = props;
+  const {
+    endWithCircle,
+    rowStyle,
+    timeStyle,
+    timeTextStyle,
+    lineContainerStyle,
+    circleStyle,
+    dotStyle,
+    lineStyle,
+    eventStyle,
+    titleTextStyle,
+    descriptionTextStyle
+  } = props;
 
   return (
     <React.Fragment>
-      <Row>
-        <Time>{item.time}</Time>
-        <VerticalSeparator>
-          <Circle color={circleColor}>
-            <Dot color={dotColor} />
+      <Row style={rowStyle}>
+        <Time style={timeStyle} textStyle={timeTextStyle}>
+          {item.time}
+        </Time>
+        <VerticalSeparator style={lineContainerStyle}>
+          <Circle style={circleStyle} color={circleColor}>
+            <Dot style={dotStyle} color={dotColor} />
           </Circle>
-          <Line color={lineColor} width={lineWidth} />
+          <Line style={lineStyle} color={lineColor} width={lineWidth} />
         </VerticalSeparator>
-        <Event>
-          <Title>{item.title}</Title>
-          <Description>{item.description}</Description>
+        <Event style={eventStyle}>
+          <Title textStyle={titleTextStyle}>{item.title}</Title>
+          <Description textStyle={descriptionTextStyle}>{item.description}</Description>
         </Event>
       </Row>
       {isLast && endWithCircle && (
-        <Row key={`${index}_last`}>
+        <Row key={`${index}_last`} style={rowStyle}>
           <Time />
           <VerticalSeparator>
-            <Circle color={circleColor}>
-              <Dot color={dotColor} />
+            <Circle style={circleStyle} color={circleColor}>
+              <Dot style={dotStyle} color={dotColor} />
             </Circle>
           </VerticalSeparator>
           <Event />
@@ -90,29 +104,43 @@ export const SingleColumnRight = ({ item, index, isLast, props }: RenderProps) =
     props
   });
 
-  const { endWithCircle } = props;
+  const {
+    endWithCircle,
+    rowStyle,
+    timeStyle,
+    timeTextStyle,
+    lineContainerStyle,
+    circleStyle,
+    dotStyle,
+    lineStyle,
+    eventStyle,
+    titleTextStyle,
+    descriptionTextStyle
+  } = props;
 
   return (
     <React.Fragment>
-      <Row>
-        <Event style={styles.rightAlign}>
-          <Title>{item.title}</Title>
-          <Description>{item.description}</Description>
+      <Row style={rowStyle}>
+        <Event style={{ ...eventStyle, ...styles.rightAlign }}>
+          <Title textStyle={titleTextStyle}>{item.title}</Title>
+          <Description textStyle={descriptionTextStyle}>{item.description}</Description>
         </Event>
-        <VerticalSeparator>
-          <Circle color={circleColor}>
-            <Dot color={dotColor} />
+        <VerticalSeparator style={lineContainerStyle}>
+          <Circle style={circleStyle} color={circleColor}>
+            <Dot style={dotStyle} color={dotColor} />
           </Circle>
-          <Line color={lineColor} width={lineWidth} />
+          <Line style={lineStyle} color={lineColor} width={lineWidth} />
         </VerticalSeparator>
-        <Time>{item.time}</Time>
+        <Time style={timeStyle} textStyle={timeTextStyle}>
+          {item.time}
+        </Time>
       </Row>
       {isLast && endWithCircle && (
-        <Row key={`${index}_last`}>
+        <Row key={`${index}_last`} style={rowStyle}>
           <Event />
           <VerticalSeparator>
-            <Circle color={circleColor}>
-              <Dot color={dotColor} />
+            <Circle style={circleStyle} color={circleColor}>
+              <Dot style={dotStyle} color={dotColor} />
             </Circle>
           </VerticalSeparator>
           <Time />

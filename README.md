@@ -8,120 +8,51 @@ Highly customizable Timeline component for React Native (Android and iOS) and wo
 [![NPM Version](https://img.shields.io/npm/v/react-native-timeline-feed.svg?style=flat)](https://www.npmjs.com/package/react-native-timeline-feed)
 [![NPM Downloads](https://img.shields.io/npm/dt/react-native-timeline-feed.svg?style=flat)](https://www.npmjs.com/package/react-native-timeline-feed)
 
+# Migrating from react-native-timeline-listview
+
+If you're coming from `react-native-listview` and simply want to use a `FlatList` instead, then use the latest v1.x.x package instead. It'll be the path of least resistance.
+
 # Demo
 
-A demos can be found on [expo](https://snack.expo.io/@johan-dev/react-native-timeline-feed@2.0.1).
+A demo can be found on [expo](https://snack.expo.io/@johan-dev/react-native-timeline-feed@2.0.1).
+
+# Getting Started
+
+`yarn add react-native-timeline-feed` or your favorite way...
+
+You'll need the following imports
+
+```
+import Timeline from 'react-native-timeline-feed';
+
+// only needed if you're going to select a non-default preset
+import { Preset } from 'react-native-timeline-feed/lib/Types';
+```
+
+### Minimum
+
+```
+<Timeline data={data} />
+```
+
+or one of the presets
+
+```
+<Timeline
+  data={data}
+  preset={Preset.SingleColumnRight} />
+```
 
 ## Configuration
 
-When using presets, Color/Width specificity is as follows (highest priority to lowest): `ItemProps -> TimelineProps -> defaults`.
+```
+Note. Color/Width specificity is as follows (highest priority to lowest): ItemProps -> TimelineProps -> defaults.
+```
 
-#### ItemProps
+[`<Timeline />` Component API](docs/timeline.md)
 
-| Property     | Type   | Default |
-| ------------ | ------ | ------- |
-| title?       | string | null    |
-| time?        | string | null    |
-| description? | string | null    |
-| lineWidth?   | number | `2`     |
-| lineColor?   | string | `#000`  |
-| circleColor? | string | `#000`  |
-| dotColor?    | string | `#FFF`  |
+[Other Component APIs](docs/components.md)
 
-#### TimelineProps
+## Other Examples
 
-All [FlatList](https://facebook.github.io/react-native/docs/flatlist) Props (except renderItem)
-
-| Property        | Type                                              | Default                   |
-| --------------- | ------------------------------------------------- | ------------------------- |
-| lineWidth?      | number                                            | `2`                       |
-| lineColor?      | string                                            | `#000`                    |
-| circleColor?    | string                                            | `#000`                    |
-| dotColor?       | string                                            | `#FFF`                    |
-| endWithCircle?  | boolean                                           | `false`                   |
-| preset?         | Preset                                            | `Preset.SingleColumnLeft` |
-| renderFeedItem? | `(props: RenderProps) => React.ReactElement<any>` | null                      |
-
-#### Preset
-
-| Preset            | Description            |
-| ----------------- | ---------------------- |
-| SingleColumnLeft  | Left aligned timeline  |
-| SingleColumnRight | Right aligned timeline |
-
-### Configuration for custom timeline
-
-#### RenderProps
-
-| Property | Type          | Description                        |
-| -------- | ------------- | ---------------------------------- |
-| item     | ItemProps     | Props of the item                  |
-| index    | number        | Position of the item               |
-| isLast   | ItemProps     | Is the item last                   |
-| Props    | TimelineProps | All props passed into the timeline |
-
-#### RowProps
-
-| Property | Type            | Default |
-| -------- | --------------- | ------- |
-| children | React.ReactNode | N/A     |
-| style    | ViewStyle       | null    |
-
-#### TimeProps
-
-| Property  | Type      | Default |
-| --------- | --------- | ------- |
-| children  | string    | null    |
-| style     | ViewStyle | null    |
-| TextStyle | TextStyle | null    |
-
-#### EventProps
-
-| Property | Type            | Default |
-| -------- | --------------- | ------- |
-| children | React.ReactNode | N/A     |
-| style    | ViewStyle       | null    |
-
-#### TitleProps
-
-| Property  | Type            | Default |
-| --------- | --------------- | ------- |
-| children  | React.ReactNode | N/A     |
-| textStyle | TextStyle       | null    |
-
-#### DescriptionProps
-
-| Property  | Type            | Default |
-| --------- | --------------- | ------- |
-| children  | React.ReactNode | N/A     |
-| textStyle | TextStyle       | null    |
-
-#### VerticalProps
-
-| Property | Type            | Default |
-| -------- | --------------- | ------- |
-| children | React.ReactNode | N/A     |
-| style    | ViewStyle       | null    |
-
-#### LineProps
-
-| Property | Type      | Default |
-| -------- | --------- | ------- |
-| width    | number    | N/A     |
-| color    | string    | N/A     |
-| style    | ViewStyle | null    |
-
-#### DotProps
-
-| Property | Type      | Default |
-| -------- | --------- | ------- |
-| color    | string    | N/A     |
-| style    | ViewStyle | null    |
-
-#### CircleProps
-
-| Property | Type            | Default |
-| -------- | --------------- | ------- |
-| color    | string          | N/A     |
-| children | React.ReactNode | null    |
-| style    | ViewStyle       | null    |
+[Custom Setup](examples/custom.md)

@@ -2,16 +2,13 @@
 
 # Changelog
 
-## [2.0.0-alpha.8]
-
-Removed flow and replaced with TypeScript.
-
-## [2.0.0-alpha.0]
+## [2.0.0-alpha.X]
 
 _[BREAKING]_
 
-A complete redesign to the way the timeline works. This is to allow more flexibility. As this is still alpha it's subject to change.
-See the examples folder for proposed changes.
+- Complete rebuild of the timeline (use V1.x.x if you're migrating)
+  - Replaced Flow with TypeScript
+- Renamed `renderFeedItem` to `renderItem`.
 
 ## [1.0.1]
 

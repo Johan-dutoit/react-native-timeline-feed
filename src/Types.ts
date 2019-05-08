@@ -13,6 +13,9 @@ export interface ItemProps {
   lineColor?: string;
   circleColor?: string;
   dotColor?: string;
+
+  //Allow any custom props to also be included
+  [x: string]: any;
 }
 
 export interface RenderProps {
@@ -32,7 +35,20 @@ export interface TimelineProps extends LocalFlatListProps {
   endWithCircle: boolean;
   preset: Preset;
   data: ReadonlyArray<ItemProps>;
-  renderFeedItem?: (props: RenderProps) => React.ReactElement<any>;
+  renderItem?: (props: RenderProps) => React.ReactElement<any>;
+
+  // !! WIP
+
+  rowStyle?: ViewStyle;
+  timeStyle?: ViewStyle;
+  timeTextStyle?: TextStyle;
+  dotStyle?: ViewStyle;
+  lineContainerStyle?: ViewStyle;
+  circleStyle?: ViewStyle;
+  lineStyle?: ViewStyle;
+  eventStyle?: ViewStyle;
+  titleTextStyle?: TextStyle;
+  descriptionTextStyle?: TextStyle;
 }
 
 export interface RowProps {

@@ -17,6 +17,13 @@ import {
   DotProps
 } from './Types';
 
+import {
+  DEFAULT_LINE_WIDTH,
+  DEFAULT_LINE_COLOR,
+  DEFAULT_CIRCLE_COLOR,
+  DEFAULT_DOT_COLOR
+} from './Defaults';
+
 export function Row({ children, style }: RowProps) {
   return <View style={[styles.rowContainer, style]}>{children}</View>;
 }
@@ -53,17 +60,17 @@ export function VerticalSeparator({ children, style }: VerticalProps) {
   return <View style={[styles.separatorContainer, style]}>{children}</View>;
 }
 
-export function Line({ width, color, style }: LineProps) {
+export function Line({ width = DEFAULT_LINE_WIDTH, color = DEFAULT_LINE_COLOR, style }: LineProps) {
   return <View style={[styles.line, style, { width: width, backgroundColor: color }]} />;
 }
 
-export function Circle({ color, children, style }: CircleProps) {
+export function Circle({ color = DEFAULT_CIRCLE_COLOR, children, style }: CircleProps) {
   return (
     <View style={[styles.circleContainer, style, { backgroundColor: color }]}>{children}</View>
   );
 }
 
-export function Dot({ color, style }: DotProps) {
+export function Dot({ color = DEFAULT_DOT_COLOR, style }: DotProps) {
   return <View style={[styles.dotContainer, style, { backgroundColor: color }]} />;
 }
 

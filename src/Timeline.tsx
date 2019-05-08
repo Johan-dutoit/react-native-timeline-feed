@@ -61,7 +61,7 @@ class Timeline extends React.PureComponent<TimelineProps> {
   }
 
   renderItem = ({ item, index }: ListRenderItemInfo<ItemProps>) => {
-    const { renderFeedItem, preset, data } = this.props;
+    const { renderItem, preset, data } = this.props;
     const isLast = data.length - 1 === index;
 
     const renderProps: RenderProps = {
@@ -71,8 +71,8 @@ class Timeline extends React.PureComponent<TimelineProps> {
       props: this.props
     };
 
-    if (renderFeedItem) {
-      return renderFeedItem(renderProps);
+    if (renderItem) {
+      return renderItem(renderProps);
     }
 
     const Component = Presets[preset];
