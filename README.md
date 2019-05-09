@@ -12,7 +12,7 @@ Thanks to the contributors of [react-native-timeline-listview](https://github.co
 
 # IMPORTANT
 
-Migrating from [react-native-timeline-listview](https://github.com/thegamenicorus/react-native-timeline-listview)? Note the following breaking changes:
+Migrating from [react-native-timeline-listview](https://github.com/thegamenicorus/react-native-timeline-listview)? Use version `1.0.1` of this package and note the following breaking changes:
 
 - `innerCircle` to `innerCircleType`
 - `options` to `flatlistProps`
