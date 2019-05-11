@@ -46,7 +46,8 @@ export type Props = {
   dotColor?: string,
   circleStyle?: ViewStyleProp,
   separator?: boolean,
-  separatorStyle?: ViewStyleProp
+  separatorStyle?: ViewStyleProp,
+  centerLineAndCircle?: boolean
 };
 
 export type Item = {
@@ -74,8 +75,22 @@ type State = {
 class Timeline extends React.Component<Props, State> {
   state = {
     x: 0,
-    width: 0
+    width: 0,
+    maxLineWidth: DEFAULT_LINE_WIDTH,
   };
+
+  static getDerivedStateFromProps (props, state) {
+    let maxLineWidth = props.lineWidth || DEFAULT_LINE_WIDTH
+
+    (props.data || []).forEach(function (item) {
+      maxLineWidth = Math.max(maxLineWidth, item.lineWidth || maxLineWidth)
+    })
+
+    return {
+      ...state,
+      maxLineWidth,
+    }
+  }
 
   render() {
     const { style, data, flatListStyle, flatListProps, keyExtractor } = this.props;
@@ -87,7 +102,7 @@ class Timeline extends React.Component<Props, State> {
           data={data}
           keyExtractor={keyExtractor}
           renderItem={this.renderItem}
-          style={[styles.listview, this.props.flatListStyle]}
+          style={[styles.listview, flatListStyle]}
           {...flatListProps}
         />
       </View>
@@ -208,7 +223,7 @@ class Timeline extends React.Component<Props, State> {
   };
 
   renderEvent = ({ item, index }: FlatListItemType) => {
-    const { renderEvent } = this.props;
+    const { renderEvent, centerLineAndCircle } = this.props;
     if (renderEvent) {
       return renderEvent({ item, index });
     }
@@ -223,6 +238,9 @@ class Timeline extends React.Component<Props, State> {
 
     const lineColorToUse = item.lineColor || lineColor || DEFAULT_LINE_COLOR;
     const lineWidthToUse = item.lineWidth || lineWidth || DEFAULT_LINE_WIDTH;
+    const margin = centerLineAndCircle
+      ? Math.floor((this.state.maxLineWidth - lineWidthToUse) / 2.0)
+      : 0;
 
     const isLast = renderFullLine ? !renderFullLine : index + 1 === data.length;
     const borderColor = isLast ? 'transparent' : lineColorToUse;
@@ -235,8 +253,8 @@ class Timeline extends React.Component<Props, State> {
           borderColor: borderColor,
           borderLeftWidth: lineWidthToUse,
           borderRightWidth: 0,
-          marginLeft: 20,
-          paddingLeft: 20
+          marginLeft: 20 + margin,
+          paddingLeft: 20 + margin
         };
         break;
       case 'single-column-right':
@@ -244,8 +262,8 @@ class Timeline extends React.Component<Props, State> {
           borderColor: borderColor,
           borderLeftWidth: 0,
           borderRightWidth: lineWidthToUse,
-          marginRight: 20,
-          paddingRight: 20
+          marginRight: 20 + margin,
+          paddingRight: 20 + margin
         };
         break;
       case 'two-column':
@@ -255,26 +273,26 @@ class Timeline extends React.Component<Props, State> {
                 borderColor: borderColor,
                 borderLeftWidth: lineWidthToUse,
                 borderRightWidth: 0,
-                marginLeft: 20,
-                paddingLeft: 20
+                marginLeft: 20 + margin,
+                paddingLeft: 20 + margin
               }
             : {
                 borderColor: borderColor,
                 borderLeftWidth: 0,
                 borderRightWidth: lineWidthToUse,
-                marginRight: 20,
-                paddingRight: 20
+                marginRight: 20 + margin,
+                paddingRight: 20 + margin
               };
         break;
     }
 
-    const { onEventPress, detailContainerStyle } = this.props;
+    const { onEventPress, detailContainerStyle, centerLineAndCircle } = this.props;
 
     return (
       <View
         onLayout={evt => {
+          const { x, width } = evt.nativeEvent.layout;
           if (!this.state.x && !this.state.width) {
-            const { x, width } = evt.nativeEvent.layout;
             this.setState({ x, width });
           }
         }}
@@ -310,7 +328,8 @@ class Timeline extends React.Component<Props, State> {
   };
 
   renderCircle({ item, index }: FlatListItemType) {
-    const { renderCircle } = this.props;
+    const { renderCircle, centerLineAndCircle } = this.props;
+
     if (renderCircle) {
       return renderCircle({ item, index });
     }
@@ -319,7 +338,9 @@ class Timeline extends React.Component<Props, State> {
 
     const circleSizeToUse = item.circleSize || circleSize || DEFAULT_CIRCLE_SIZE;
     const circleColorToUse = item.circleColor || circleColor || DEFAULT_CIRCLE_COLOR;
-    const lineWidthToUse = item.lineWidth || lineWidth || DEFAULT_LINE_WIDTH;
+    const lineWidthToUse = centerLineAndCircle
+      ? this.state.maxLineWidth
+      : item.lineWidth || lineWidth || DEFAULT_LINE_WIDTH;
 
     const { x, width } = this.state;
 
@@ -352,6 +373,10 @@ class Timeline extends React.Component<Props, State> {
           left: width - circleSizeToUse / 2 - (lineWidthToUse - 1) / 2
         };
         break;
+    }
+
+    if (centerLineAndCircle) {
+      localCircleStyle.top = - circleSizeToUse;
     }
 
     const {
