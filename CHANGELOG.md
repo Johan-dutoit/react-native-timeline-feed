@@ -2,13 +2,12 @@
 
 # Changelog
 
-## [2.0.0-alpha.X]
+## [2.0.0]
 
 _[BREAKING]_
 
 - Complete rebuild of the timeline (use V1.x.x if you're migrating)
   - Replaced Flow with TypeScript
-- Renamed `renderFeedItem` to `renderItem`.
 
 ## [1.0.1]
 
