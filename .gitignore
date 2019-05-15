@@ -1,4 +1,5 @@
-node_modules/**/*
-.vscode
+*.log
 .DS_Store
+node_modules
 lib
+.vscode

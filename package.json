@@ -1,16 +1,14 @@
 {
   "name": "react-native-timeline-feed",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Timeline component for React Native",
   "main": "lib/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src/ -d lib/ --copy-files",
-    "prepare": "npm run build",
-    "flow": "flow"
-  },
+  "types": "lib/index.d.ts",
   "files": [
-    "lib/**"
+    "lib",
+    "LICENSE",
+    "Readme.md",
+    "CHANGELOG.md"
   ],
   "repository": {
     "type": "git",
@@ -33,22 +31,20 @@
   "bugs": {
     "url": "https://github.com/Johan-dutoit/react-native-timeline-feed/issues"
   },
-  "homepage": "https://github.com/Johan-dutoit/react-native-timeline-feed",
-  "peerDependencies": {
-    "react-native": ">= 0.44"
+  "homepage": "https://github.com/Johan-dutoit/react-native-timeline-feed#readme",
+  "scripts": {
+    "build": "rm -rf lib/ && tsc",
+    "prepare": "npm run build"
   },
   "devDependencies": {
-    "babel-cli": "6.26.0",
-    "babel-eslint": "^10.0.1",
-    "babel-plugin-transform-class-properties": "6.24.1",
-    "babel-preset-flow": "6.23.0",
-    "babel-preset-react-native": "^4.0.1",
-    "eslint-config-prettier": "^3.1.0",
-    "eslint-plugin-prettier": "^3.0.0",
-    "flow-bin": "0.81.0",
-    "metro-react-native-babel-preset": "0.46.0",
-    "prettier": "1.14.3",
-    "react": "16.5.0",
-    "react-native": "0.57.1"
+    "@types/jest": "^24.0.12",
+    "@types/react": "^16.8.15",
+    "@types/react-native": "^0.57.51",
+    "react": "^16.8.6",
+    "react-native": "^0.59.5",
+    "typescript": "^3.4.5"
+  },
+  "peerDependencies": {
+    "react-native": ">= 0.44"
   }
 }
