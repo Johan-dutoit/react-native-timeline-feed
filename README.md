@@ -10,7 +10,7 @@ Highly customizable Timeline component for React Native (Android and iOS) and wo
 
 # Migrating from react-native-timeline-listview
 
-If you're coming from `react-native-listview` and simply want to use a `FlatList` instead, then use the latest v1.x.x package instead. It'll be the path of least resistance.
+If you're coming from `react-native-listview` and simply want to use a `FlatList` instead, then use the latest [v1.x.x](https://github.com/Johan-dutoit/react-native-timeline-feed/tree/1.0.1) package instead. It'll be the path of least resistance.
 
 # Demo
 
