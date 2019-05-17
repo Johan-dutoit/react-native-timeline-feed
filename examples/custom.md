@@ -1,10 +1,9 @@
 <!-- @format -->
 
-You'll need the following imports
+You'll need the following import(s)
 
 ```
 import Timeline from 'react-native-timeline-feed';
-import { Preset } from 'react-native-timeline-feed/lib/Types';
 ```
 
 ### Using statics on Timeline

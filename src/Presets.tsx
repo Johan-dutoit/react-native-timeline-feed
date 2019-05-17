@@ -5,7 +5,7 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 
-import { RenderProps, Preset } from './Types';
+import { RenderProps } from './Types';
 
 import {
   DEFAULT_CIRCLE_COLOR,
@@ -196,6 +196,6 @@ const styles = StyleSheet.create({
 });
 
 export default {
-  [Preset.SingleColumnLeft]: SingleColumnLeft,
-  [Preset.SingleColumnRight]: SingleColumnRight
+  SingleColumnLeft: SingleColumnLeft,
+  SingleColumnRight: SingleColumnRight
 };

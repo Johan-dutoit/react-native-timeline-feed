@@ -26,8 +26,6 @@ You'll need the following imports
 ```
 import Timeline from 'react-native-timeline-feed';
 
-// only needed if you're going to select a non-default preset
-import { Preset } from 'react-native-timeline-feed/lib/Types';
 ```
 
 ### Minimum
@@ -41,7 +39,7 @@ or one of the presets
 ```
 <Timeline
   data={data}
-  preset={Preset.SingleColumnRight} />
+  preset='SingleColumnRight' />
 ```
 
 ## Configuration

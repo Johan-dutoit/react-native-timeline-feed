@@ -2,6 +2,13 @@
 
 # Changelog
 
+## [2.1.0]
+
+- Changed Preset from `enum` to `type`
+  - Changing usage from `Preset.SingleColumnLeft` (which resulted in 0) to `'SingleColumnLeft'`
+- Changed user `style` prop, to now take precendence over built in styles
+  - Beware that if you pass in `backgroundColor`/`width`, it will override the defaults/whatever the data says for `Timeline.Line`, `Timeline.Circle` and `Timeline.Dot`
+
 ## [2.0.0]
 
 _[BREAKING]_

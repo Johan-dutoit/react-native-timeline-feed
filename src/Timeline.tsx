@@ -21,12 +21,14 @@ import {
   DEFAULT_CIRCLE_COLOR,
   DEFAULT_DOT_COLOR,
   DEFAULT_LINE_COLOR,
-  DEFAULT_LINE_WIDTH
+  DEFAULT_LINE_WIDTH,
+  DEFAULT_END_WITH_CIRCLE,
+  DEFAULT_PRESET
 } from './Defaults';
 
 import Presets from './Presets';
 
-import { TimelineProps, Preset, ItemProps, RenderProps } from './Types';
+import { TimelineProps, ItemProps, RenderProps } from './Types';
 
 class Timeline extends React.PureComponent<TimelineProps> {
   static defaultProps = {
@@ -34,8 +36,8 @@ class Timeline extends React.PureComponent<TimelineProps> {
     lineColor: DEFAULT_LINE_COLOR,
     circleColor: DEFAULT_CIRCLE_COLOR,
     dotColor: DEFAULT_DOT_COLOR,
-    endWithCircle: false,
-    preset: Preset.SingleColumnLeft
+    endWithCircle: DEFAULT_END_WITH_CIRCLE,
+    preset: DEFAULT_PRESET
   };
 
   static Row = Row;

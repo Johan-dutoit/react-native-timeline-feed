@@ -7,10 +7,10 @@
 | title?       | string | undefined |
 | time?        | string | undefined |
 | description? | string | undefined |
-| lineWidth?   | number | `2`       |
-| lineColor?   | string | `#000`    |
-| circleColor? | string | `#000`    |
-| dotColor?    | string | `#FFF`    |
+| lineWidth    | number | `2`       |
+| lineColor    | string | `#000`    |
+| circleColor  | string | `#000`    |
+| dotColor     | string | `#FFF`    |
 
 #### Preset
 

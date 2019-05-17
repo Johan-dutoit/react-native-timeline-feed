@@ -61,17 +61,17 @@ export function VerticalSeparator({ children, style }: VerticalProps) {
 }
 
 export function Line({ width = DEFAULT_LINE_WIDTH, color = DEFAULT_LINE_COLOR, style }: LineProps) {
-  return <View style={[styles.line, style, { width: width, backgroundColor: color }]} />;
+  return <View style={[styles.line, { width: width, backgroundColor: color }, style]} />;
 }
 
 export function Circle({ color = DEFAULT_CIRCLE_COLOR, children, style }: CircleProps) {
   return (
-    <View style={[styles.circleContainer, style, { backgroundColor: color }]}>{children}</View>
+    <View style={[styles.circleContainer, { backgroundColor: color }, style]}>{children}</View>
   );
 }
 
 export function Dot({ color = DEFAULT_DOT_COLOR, style }: DotProps) {
-  return <View style={[styles.dotContainer, style, { backgroundColor: color }]} />;
+  return <View style={[styles.dotContainer, { backgroundColor: color }, style]} />;
 }
 
 const styles = StyleSheet.create({
@@ -89,7 +89,6 @@ const styles = StyleSheet.create({
   },
   line: {
     flex: 1,
-    backgroundColor: 'black',
     marginHorizontal: 8
   },
   circleContainer: {

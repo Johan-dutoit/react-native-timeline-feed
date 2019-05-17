@@ -99,7 +99,4 @@ export interface CircleProps {
   style?: ViewStyle;
 }
 
-export enum Preset {
-  'SingleColumnLeft',
-  'SingleColumnRight'
-}
+export type Preset = 'SingleColumnLeft' | 'SingleColumnRight';

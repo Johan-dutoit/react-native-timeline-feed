@@ -4,15 +4,15 @@
 
 All [FlatList](https://facebook.github.io/react-native/docs/flatlist) Props (however renderItem is replaced with our own)
 
-| Property       | Type                                              | Default                   |
-| -------------- | ------------------------------------------------- | ------------------------- |
-| lineWidth?     | number                                            | `2`                       |
-| lineColor?     | string                                            | `#000`                    |
-| circleColor?   | string                                            | `#000`                    |
-| dotColor?      | string                                            | `#FFF`                    |
-| endWithCircle? | boolean                                           | `false`                   |
-| preset?        | Preset                                            | `Preset.SingleColumnLeft` |
-| renderItem?    | `(props: RenderProps) => React.ReactElement<any>` | undefined                 |
+| Property      | Type                                              | Default            |
+| ------------- | ------------------------------------------------- | ------------------ |
+| lineWidth     | number                                            | `2`                |
+| lineColor     | string                                            | `#000`             |
+| circleColor   | string                                            | `#000`             |
+| dotColor      | string                                            | `#FFF`             |
+| endWithCircle | boolean                                           | `false`            |
+| preset        | Preset                                            | `SingleColumnLeft` |
+| renderItem?   | `(props: RenderProps) => React.ReactElement<any>` | undefined          |
 
 Additional Props for styling when using a preset
 
